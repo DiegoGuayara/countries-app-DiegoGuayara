@@ -1,3 +1,12 @@
-import { countries } from './countries.js'
+import { countries } from "./countries.js";
 
-console.log(countries)
+const cont1 = document.querySelector(".country-card");
+
+countries.map(({ country, capital, population }) => {
+  const div = document.createElement("div");
+  div.className = "country";
+  div.innerHTML = `<h2>${country}</h2><p>Capital: ${capital}</p><p>Population: ${population}</p><br/> <hr/>`;
+
+  cont1.appendChild(div)
+});
+

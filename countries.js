@@ -6,7 +6,11 @@ export const countries = [
   { country: "Colombia", capital: "Bogotá", population: 50882891 },
   { country: "Costa Rica", capital: "San José", population: 5094114 },
   { country: "Cuba", capital: "Havana", population: 11326616 },
-  { country: "Dominican Republic", capital: "Santo Domingo", population: 10847904 },
+  {
+    country: "Dominican Republic",
+    capital: "Santo Domingo",
+    population: 10847904,
+  },
   { country: "Ecuador", capital: "Quito", population: 17643060 },
   { country: "El Salvador", capital: "San Salvador", population: 6486205 },
   { country: "Guatemala", capital: "Guatemala City", population: 17915568 },
@@ -17,5 +21,5 @@ export const countries = [
   { country: "Paraguay", capital: "Asunción", population: 7132538 },
   { country: "Peru", capital: "Lima", population: 32971846 },
   { country: "Uruguay", capital: "Montevideo", population: 3477000 },
-  { country: "Venezuela", capital: "Caracas", population: 28435943 }
+  { country: "Venezuela", capital: "Caracas", population: 28435943 },
 ];
