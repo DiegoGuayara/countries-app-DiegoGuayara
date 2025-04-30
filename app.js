@@ -5,16 +5,28 @@ const searchInput = document.querySelector("#search-input");
 
 // Función que renderiza los países
 function renderCountries(filteredCountries) {
-  container.innerHTML = ""; // Limpiar contenido anterior
+  container.innerHTML = ""; // Limpiar tarjetas anteriores
 
+  if (filteredCountries.length === 0) {
+    // Si no hay países, mostrar mensaje
+    const noResult = document.createElement("div");
+    noResult.className = "country-card";
+    noResult.innerHTML = `
+      <h2>No countries found</h2>
+      <p>Try another name.</p>
+    `;
+    container.appendChild(noResult);
+    return;
+  }
+
+  // Si hay países, renderizarlos normalmente
   filteredCountries.forEach(({ country, capital, population }) => {
     const card = document.createElement("div");
     card.className = "country-card";
     card.innerHTML = `
       <h2>${country}</h2>
-      <hr/>
       <p>Capital: ${capital}</p>
-      <p>Población: ${population.toLocaleString()}</p>
+      <p>Population: ${population.toLocaleString()}</p>
     `;
     container.appendChild(card);
   });
