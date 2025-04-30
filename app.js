@@ -1,11 +1,33 @@
 import { countries } from "./countries.js";
 
-const cont1 = document.querySelector(".countries");
+const container = document.querySelector(".countries");
+const searchInput = document.querySelector("#search-input");
 
-countries.map(({ country, capital, population }) => {
-  const div = document.createElement("div");
-  div.className = "country-card";
-  div.innerHTML = `<h2>${country}</h2><p>Capital: ${capital}</p><p>Population: ${population}</p><br/> <hr/>`;
+// Función que renderiza los países
+function renderCountries(filteredCountries) {
+  container.innerHTML = ""; // Limpiar contenido anterior
 
-  cont1.appendChild(div);
+  filteredCountries.forEach(({ country, capital, population }) => {
+    const card = document.createElement("div");
+    card.className = "country-card";
+    card.innerHTML = `
+      <h2>${country}</h2>
+      <hr/>
+      <p>Capital: ${capital}</p>
+      <p>Población: ${population.toLocaleString()}</p>
+    `;
+    container.appendChild(card);
+  });
+}
+
+// Mostrar todos los países al cargar
+renderCountries(countries);
+
+// Escuchar cambios en el input
+searchInput.addEventListener("input", (e) => {
+  const searchText = e.target.value.toLowerCase();
+  const filtered = countries.filter(({ country }) =>
+    country.toLowerCase().includes(searchText)
+  );
+  renderCountries(filtered);
 });
